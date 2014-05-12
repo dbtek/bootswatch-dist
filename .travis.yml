@@ -6,3 +6,6 @@ before_script:
 env:
   global:
     secure: Hrn84A4O9W8ImZQtvus30+DpkACd6FPJ4WGt2X1uJ3g5aflvIKckEKZLWw2DoUDa67dgnnLVhYPGRohrkArXk2MVtLMVwUU/zRKtDrUbdrp0IiAp0TLoppvxJFBfrhDqubSoEEe3v4CjYXjZBL5ZN8iLqdbNTsFi/kxR5mn0VWY=
+branches:
+  only:
+    - master
