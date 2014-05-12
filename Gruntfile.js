@@ -152,11 +152,12 @@ module.exports = function (grunt) {
       commitPackageJson: {
         options: {
           failOnError: false,
-          stdout: false
+          stdout: false,
+          stderr: false
         },
         command: 'git add package.json && ' +
                  'git commit -m "Auto update [ci skip]" && ' +
-                 'git push origin master'
+                 'git push origin master -f'
       }
     }
   });
