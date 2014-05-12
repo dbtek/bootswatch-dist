@@ -1,0 +1,29 @@
+{
+  "name": "bootswatch-dist",
+  "version": "3.1.1",
+  "homepage": "https://github.com/dbtek/bootswatch-dist",
+  "authors": [
+    "İsmail Demirbilek <ce.demirbilek@gmail.com>"
+  ],
+  "description": "Distribution packages for Bootswatch themes. Just the ones ready to use with Bower.",
+  "main": [
+    "css/bootstrap.min.css",
+    "js/bootstrap.min.js"
+  ],
+  "keywords": [
+    "bootstwatch",
+    "dist",
+    "package"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "package.json",
+    "Gruntfile.js",
+    ".gitignore"
+  ]
+}
