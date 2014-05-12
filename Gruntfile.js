@@ -70,7 +70,7 @@ module.exports = function (grunt) {
       setUser: {
         options: {
         },
-        command: 'git config --global user.name "Auto Update" && git config --global user.email "$GH_TOKEN"'
+        command: 'git config --global user.name "Travis Build" && git config --global user.email "$GH_TOKEN"'
       },
       cloneProject: {
         options: {
@@ -120,7 +120,7 @@ module.exports = function (grunt) {
           }
         },
         command: 'git add . && ' +
-                 'git commit -m "Auto update"'
+                 'git commit -m "Auto update [ci skip]"'
       },
       tagVersion: {
         options: {
