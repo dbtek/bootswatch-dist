@@ -5,7 +5,7 @@
   "authors": [
     "İsmail Demirbilek <ce.demirbilek@gmail.com>"
   ],
-  "description": "Distributions packages for Bootswatch themes. Just the ones ready to use with Bower.",
+  "description": "Distribution packages for Bootswatch themes. Just the ones ready to use with Bower.",
   "main": [
     "css/bootstrap.min.css",
     "js/bootstrap.min.js"
