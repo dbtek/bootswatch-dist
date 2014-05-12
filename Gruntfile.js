@@ -122,7 +122,7 @@ module.exports = function (grunt) {
           }
         },
         command: 'git add . --all && ' +
-                 'git commit -m "Auto update [ci skip]"'
+                 'git commit -m "Auto update"'
       },
       tagVersion: {
         options: {
