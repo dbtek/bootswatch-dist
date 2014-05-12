@@ -2,15 +2,20 @@
   "name": "bootswatch-dist",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dbtek/bootswatch-dist.git"
+    "url": "https://github.com/dbtek/bootswatch-dist.git",
+    "rawUrl": "https://raw.githubusercontent.com/dbtek/bootswatch-dist"
   },
   "bootswatch": {
     "version": "3.1.1"
   },
   "version": "0.0.1",
-  "dependencies": {},
+  "dependencies": {
+    "grunt-check-online": "^0.2.0"
+  },
   "devDependencies": {
     "grunt": "~0.4.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-curl": "^1.5.1",
     "grunt-http": "^1.4.0",
     "grunt-shell": "^0.7.0"
   }
