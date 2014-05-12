@@ -171,6 +171,7 @@ module.exports = function (grunt) {
     var content = grunt.file.readJSON('package.json');
     content.bootswatch.version = grunt.config.get('update.version');
     grunt.file.write('package.json', JSON.stringify(content, undefined, 2));
+    grunt.task.run('commitPackageJson');
   });
 
   grunt.registerTask('createBowerJson', 'Creates a bower.json for new themes ', function() {
