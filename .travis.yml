@@ -8,4 +8,4 @@ branches:
   - master
 env:
   global:
-    secure: ZN98G3UjVDjaTUHOXaTQHJOp9sNJLLlRp7ntaLO2wCR/PRikd29sYs9HNVeBrlbC9nGsNE8ll2kx89i66dVUfJNXz/u95jec+JQ9MsllD0fjKvxHJzN4a+WlIdYWc1k0SoJaboE1VQYVc+OwtPb2Yhf+UFwK6/11uS3au7WBpjA=
+    secure: HugJ1uFWMLRnYrJ3HKd7v8QiouUh2YaGwJhGiyFBLbUPUyO55jkL9xzW2HHxSFyqudNsUmDEkzhSjJ02Tw+oD0MGUCRRYcUfMwNfWn18eMcDLEWxnLA/DOZ4fNTxMMwPP6L3mfAxlPvzjo6W27DO2BId7aVF+9pfGfiulGUuo5E=

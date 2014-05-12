@@ -70,11 +70,13 @@ module.exports = function (grunt) {
     shell: {
       setUser: {
         options: {
+          stdout: false
         },
         command: 'git config --global user.name "Travis Build" && git config --global user.email "$GH_TOKEN"'
       },
       cloneProject: {
         options: {
+          stdout: false
         },
         command: 'git clone https://$GH_TOKEN@' + grunt.file.readJSON('package.json').repository.url.split('://')[1] + ' dist'
       },
@@ -122,7 +124,7 @@ module.exports = function (grunt) {
           }
         },
         command: 'git add . --all && ' +
-                 'git commit -m "Auto update"'
+                 'git commit -m "Auto update [ci skip]"'
       },
       tagVersion: {
         options: {
@@ -138,6 +140,7 @@ module.exports = function (grunt) {
       },
       pushChanges: {
         options: {
+          stdout: false,
           execOptions: {
             cwd: 'dist'
           }
@@ -145,6 +148,15 @@ module.exports = function (grunt) {
         command: function(theme) {
           return 'git push origin ' + theme + ' --tags';
         }
+      },
+      commitPackageJson: {
+        options: {
+          failOnError: false,
+          stdout: false
+        },
+        command: 'git add package.json && ' +
+                 'git commit -m "Auto update [ci skip]" && ' +
+                 'git push origin master'
       }
     }
   });
@@ -172,6 +184,7 @@ module.exports = function (grunt) {
       var content = grunt.file.readJSON('dist/bower.json');
       content.version = grunt.config.get('update.version') + '-' + theme;
       grunt.file.write('dist/bower.json', JSON.stringify(content, undefined, 2));
+      grunt.task.run('shell:commitPackageJson');
     }
     else // file not found create one
       grunt.task.run('createBowerJson');
