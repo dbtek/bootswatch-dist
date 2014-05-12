@@ -18,5 +18,11 @@
     "grunt-curl": "^1.5.1",
     "grunt-http": "^1.4.0",
     "grunt-shell": "^0.7.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "grunt"
   }
 }

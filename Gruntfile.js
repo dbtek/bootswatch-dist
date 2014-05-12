@@ -243,10 +243,6 @@ module.exports = function (grunt) {
     'http:bootswatch'
   ]);
 
-  grunt.registerTask('test', [
-    'checkUpdate'
-  ]);
-
   // Default task
   grunt.registerTask('default', [
     'checkUpdate'
