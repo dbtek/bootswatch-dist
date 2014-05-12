@@ -111,7 +111,7 @@ module.exports = function (grunt) {
         options: {
         },
         command:  function (theme) {
-          return 'mkdir dist/css && ' +
+          return 'mkdir -p dist/css && ' +
                  'cp -f update/' + theme + '/bootstrap.min.css dist/css/bootstrap.min.css && ' +
                  'cp -Rf update/bootstrap/* dist';
         }
