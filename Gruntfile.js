@@ -48,13 +48,14 @@ module.exports = function (grunt) {
                   grunt.config.set('http.fetch' + theme.name + '.dest', grunt.config.get('update.destination') + theme.name.toLowerCase() + '/bootstrap.min.css');
                   grunt.task.run('http:fetch' + theme.name);
                 });
-                //grunt.task.run('updatePackageJson');
                 grunt.task.run('fetchBootstrapFiles');
                 grunt.task.run('release');
+                grunt.task.run('updatePackageJson');
               }
               else {
                 grunt.task.run('checkThemes');
                 grunt.task.run('releaseNewThemes');
+                grunt.task.run('updatePackageJson');
               }
             }
           }
@@ -181,7 +182,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('release', '', function() {
     grunt.task.run('shell:setUser');
-
     grunt.task.run('clean:dist');
     grunt.task.run('shell:cloneProject');
 
@@ -207,7 +207,7 @@ module.exports = function (grunt) {
   })
 
   grunt.registerTask('checkThemes', '', function() {
-    
+
     grunt.config.set('update.newThemes', []);
     grunt.config.get('update.themes').forEach(function(theme) {
       var url = grunt.config.get('pkg.repository.rawUrl') + '/' + theme.name.toLowerCase() + '/bower.json';
