@@ -45,7 +45,7 @@ module.exports = function (grunt) {
                 data.themes.forEach(function(theme) {
                   // create dynamic http tasks and run them
                   grunt.config.set('http.fetch' + theme.name + '.options.url', theme.cssMin);
-                  grunt.config.set('http.fetch' + theme.name + '.dest', grunt.config.get('update.destination') + theme.name.toLowerCase() + '/bootstrap.min.css');
+                  grunt.config.set('http.fetch' + theme.name + '.dest', 'update/'+ theme.name.toLowerCase() + '/bootstrap.min.css');
                   grunt.task.run('http:fetch' + theme.name);
                 });
                 grunt.task.run('fetchBootstrapFiles');
@@ -85,7 +85,7 @@ module.exports = function (grunt) {
           }
         },
         command: function (theme) {
-          return 'git checkout --orphan ' + theme + ' && rm -rf *';
+          return 'git checkout --orphan ' + theme + ' && rm -rf * .gitignore .travis.yml';
         }
       },
       switchBranch: {
@@ -109,7 +109,8 @@ module.exports = function (grunt) {
         options: {
         },
         command:  function (theme) {
-          return 'cp -f update/' + theme + '/bootstrap.min.css dist/css && '+
+          return 'mkdir dist/css && ' +
+                 'cp -f update/' + theme + '/bootstrap.min.css dist/css/bootstrap.min.css && ' +
                  'cp -Rf update/bootstrap/* dist';
         }
       },
@@ -120,7 +121,7 @@ module.exports = function (grunt) {
             cwd: 'dist'
           }
         },
-        command: 'git add . && ' +
+        command: 'git add . --all && ' +
                  'git commit -m "Auto update [ci skip]"'
       },
       tagVersion: {
@@ -228,7 +229,7 @@ module.exports = function (grunt) {
         if(release) {
           // new theme release
           grunt.config.set('http.fetch' + theme.name + '.options.url', theme.cssMin);
-          grunt.config.set('http.fetch' + theme.name + '.dest', grunt.config.get('update.destination') + theme.name.toLowerCase() + '/bootstrap.min.css');
+          grunt.config.set('http.fetch' + theme.name + '.dest', 'update/' + theme.name.toLowerCase() + '/bootstrap.min.css');
           grunt.task.run('http:fetch' + theme.name);
           var newThemes = grunt.config.get('update.newThemes');
           newThemes.push(theme);
