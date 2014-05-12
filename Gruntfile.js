@@ -134,19 +134,19 @@ module.exports = function (grunt) {
           }
         },
         command: function(theme, version) {
-          return 'git tag ' + version + '-' + theme + ' -m " ' + version + ' update" -f && ' +
-                 'git push origin ' + theme;
+          return 'git tag ' + version + '-' + theme + ' -m " ' + version + ' update" -f'
         }
       },
       pushChanges: {
         options: {
           stdout: false,
+          stderr: false,
           execOptions: {
             cwd: 'dist'
           }
         },
         command: function(theme) {
-          return 'git push origin ' + theme + ' --tags';
+          return 'git push origin ' + theme + ' --tags -f';
         }
       },
       commitPackageJson: {
@@ -157,7 +157,7 @@ module.exports = function (grunt) {
         },
         command: 'git add package.json && ' +
                  'git commit -m "Auto update [ci skip]" && ' +
-                 'git push origin master -f'
+                 'git push origin master'
       }
     }
   });
