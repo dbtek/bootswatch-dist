@@ -10,10 +10,28 @@
     "css/bootstrap.min.css",
     "js/bootstrap.min.js"
   ],
+  "dependencies": {
+    "jquery": ">= 1.9.0"
+  },
   "keywords": [
     "bootstwatch",
     "dist",
-    "package"
+    "package",
+    "amelia",
+    "cerulean",
+    "cosmo",
+    "cyborg",
+    "darkly",
+    "flatly",
+    "journal",
+    "lumen",
+    "readable",
+    "simplex",
+    "slate",
+    "spacelab",
+    "superhero",
+    "united",
+    "yeti"
   ],
   "license": "MIT",
   "ignore": [
