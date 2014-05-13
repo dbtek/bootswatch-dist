@@ -124,7 +124,7 @@ module.exports = function (grunt) {
           }
         },
         command: 'git add . --all && ' +
-                 'git commit -m "Auto update [ci skip]"'
+                 'git commit -m "Auto update - Build #$TRAVIS_BUILD_NUMBER [ci skip]"'
       },
       tagVersion: {
         options: {
@@ -156,7 +156,7 @@ module.exports = function (grunt) {
           stderr: false
         },
         command: 'git add package.json && ' +
-                 'git commit -m "Auto update [ci skip]" && ' +
+                 'git commit -m "Auto update - Build #$TRAVIS_BUILD_NUMBER [ci skip]" && ' +
                  'git push origin master'
       }
     }
