@@ -174,21 +174,11 @@ module.exports = function (grunt) {
     grunt.task.run('shell:commitPackageJson');
   });
 
-  grunt.registerTask('createBowerJson', 'Creates a bower.json for new themes ', function() {
-    // read bower template
-    var content = grunt.file.readJSON('bower.json');
-    content.version = grunt.config.get('update.version');
-    grunt.file.write('dist/bower.json', JSON.stringify(content, undefined, 2));
-  });
-
   grunt.registerTask('updateBowerJson', 'Updates version of bower.json for themes ', function(theme) {
-    if(grunt.file.exists('dist/bower.json')) {
-      var content = grunt.file.readJSON('dist/bower.json');
-      content.version = grunt.config.get('update.version') + '-' + theme;
-      grunt.file.write('dist/bower.json', JSON.stringify(content, undefined, 2));
-    }
-    else // file not found create one
-      grunt.task.run('createBowerJson');
+    // read source json
+    var content = grunt.file.readJSON('bower.json');
+    content.version = grunt.config.get('update.version') + '-' + theme;
+    grunt.file.write('dist/bower.json', JSON.stringify(content, undefined, 2));
   });
 
   grunt.registerTask('fetchBootstrapFiles', [
