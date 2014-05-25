@@ -16,9 +16,9 @@ $ bower install bootswatch-dist#3.1.1-yeti
 ####With bower.json
 ```js
   ...
-	"dependencies": {
-		"bootswatch-dist": "3.1.1-yeti"
-	}
+  "dependencies": {
+    "bootswatch-dist": "3.1.1-yeti"
+  }
 ```
 
 ###Available versions:
