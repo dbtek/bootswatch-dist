@@ -20,6 +20,7 @@ module.exports = function (grunt) {
     },
     curl: {
       // Bootstrap files
+      'update/bootstrap/js/bootstrap.js': 'http://netdna.bootstrapcdn.com/bootstrap/latest/js/bootstrap.js',
       'update/bootstrap/js/bootstrap.min.js': 'http://netdna.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js',
       'update/bootstrap/fonts/glyphicons-halflings-regular.eot': 'http://netdna.bootstrapcdn.com/bootstrap/latest/fonts/glyphicons-halflings-regular.eot',
       'update/bootstrap/fonts/glyphicons-halflings-regular.woff': 'http://netdna.bootstrapcdn.com/bootstrap/latest/fonts/glyphicons-halflings-regular.woff',
@@ -45,8 +46,11 @@ module.exports = function (grunt) {
                 data.themes.forEach(function(theme) {
                   // create dynamic http tasks and run them
                   grunt.config.set('http.fetch' + theme.name + '.options.url', theme.cssMin);
-                  grunt.config.set('http.fetch' + theme.name + '.dest', 'update/'+ theme.name.toLowerCase() + '/bootstrap.min.css');
+                  grunt.config.set('http.fetch' + theme.name + '.dest', 'update/'+ theme.name.toLowerCase() + '/bootstrap.css');
                   grunt.task.run('http:fetch' + theme.name);
+                  grunt.config.set('http.fetch' + theme.name + 'Min.options.url', theme.css);
+                  grunt.config.set('http.fetch' + theme.name + 'Min.dest', 'update/'+ theme.name.toLowerCase() + '/bootstrap.min.css');
+                  grunt.task.run('http:fetch' + theme.name + 'Min');
                 });
                 grunt.task.run('fetchBootstrapFiles');
                 grunt.task.run('release');
