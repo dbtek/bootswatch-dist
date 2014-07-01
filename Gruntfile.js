@@ -45,10 +45,10 @@ module.exports = function (grunt) {
                 // fetch themes
                 data.themes.forEach(function(theme) {
                   // create dynamic http tasks and run them
-                  grunt.config.set('http.fetch' + theme.name + '.options.url', theme.cssMin);
+                  grunt.config.set('http.fetch' + theme.name + '.options.url', theme.css);
                   grunt.config.set('http.fetch' + theme.name + '.dest', 'update/'+ theme.name.toLowerCase() + '/bootstrap.css');
                   grunt.task.run('http:fetch' + theme.name);
-                  grunt.config.set('http.fetch' + theme.name + 'Min.options.url', theme.css);
+                  grunt.config.set('http.fetch' + theme.name + 'Min.options.url', theme.cssMin);
                   grunt.config.set('http.fetch' + theme.name + 'Min.dest', 'update/'+ theme.name.toLowerCase() + '/bootstrap.min.css');
                   grunt.task.run('http:fetch' + theme.name + 'Min');
                 });
