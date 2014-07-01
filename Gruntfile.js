@@ -39,7 +39,7 @@ module.exports = function (grunt) {
               var latestVersion = data.version;
               grunt.config.set('update.version', latestVersion);
               grunt.config.set('update.themes', data.themes);
-              grunt.log.writeln('Current version: ',grunt.config.get('pkg.bootswatch.version'));
+              grunt.log.writeln('We have ',grunt.config.get('pkg.bootswatch.version') + ', latest version: ' + latestVersion);
               if(grunt.config.get('pkg.bootswatch.version') < latestVersion) {
                 grunt.log.writeln('New version is available. Updating to: ' + latestVersion);
                 // fetch themes
@@ -116,7 +116,7 @@ module.exports = function (grunt) {
         },
         command:  function (theme) {
           return 'mkdir -p dist/css && ' +
-                 'cp -f update/' + theme + '/bootstrap.min.css dist/css/bootstrap.min.css && ' +
+                 'cp -f update/' + theme + '/*.css dist/css/ && ' +
                  'cp -Rf update/bootstrap/* dist';
         }
       },
@@ -225,6 +225,7 @@ module.exports = function (grunt) {
       grunt.config.set('http.check' + theme.name + '.options.ignoreErrors', true);
       grunt.config.set('http.check' + theme.name + '.options.callback', function(error, response, data) {
         var release = false;
+        data = JSON.parse(data);
         if(response.statusCode == '404') {
           release = true;
           grunt.log.writeln('New theme found: ' + theme.name);
@@ -233,12 +234,18 @@ module.exports = function (grunt) {
           release = true;
           grunt.log.writeln('Theme out of date: ' + theme.name);
         }
+        else {
+          grunt.log.writeln(theme.name + ' up to date. (' + data.version + ')');
+        }
 
         if(release) {
           // new theme release
-          grunt.config.set('http.fetch' + theme.name + '.options.url', theme.cssMin);
-          grunt.config.set('http.fetch' + theme.name + '.dest', 'update/' + theme.name.toLowerCase() + '/bootstrap.min.css');
+          grunt.config.set('http.fetch' + theme.name + '.options.url', theme.css);
+          grunt.config.set('http.fetch' + theme.name + '.dest', 'update/' + theme.name.toLowerCase() + '/bootstrap.css');
           grunt.task.run('http:fetch' + theme.name);
+          grunt.config.set('http.fetch' + theme.name + 'Min.options.url', theme.cssMin);
+          grunt.config.set('http.fetch' + theme.name + 'Min.dest', 'update/' + theme.name.toLowerCase() + '/bootstrap.min.css');
+          grunt.task.run('http:fetch' + theme.name + 'Min');
           var newThemes = grunt.config.get('update.newThemes');
           newThemes.push(theme);
           grunt.config.set('update.newThemes', newThemes);
