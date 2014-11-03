@@ -1,6 +1,5 @@
 {
   "name": "bootswatch-dist",
-  "version": "3.3.0-flatly",
   "homepage": "https://github.com/dbtek/bootswatch-dist",
   "authors": [
     "İsmail Demirbilek <ce.demirbilek@gmail.com>"
@@ -25,6 +24,7 @@
     "flatly",
     "journal",
     "lumen",
+    "paper",
     "readable",
     "simplex",
     "slate",
