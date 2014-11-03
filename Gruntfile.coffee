@@ -69,7 +69,7 @@ module.exports = (grunt) ->
       setUser:
         options:
           stdout: false
-        command: '' #'git config --global user.name "Travis Build" && git config --global user.email "$GH_TOKEN"'
+        command: 'git config --global user.name "Travis Build" && git config --global user.email "$GH_TOKEN"'
       cloneProject:
         options:
           stdout: false
