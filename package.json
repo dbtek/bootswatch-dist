@@ -5,10 +5,14 @@
     "url": "https://github.com/dbtek/bootswatch-dist.git",
     "rawUrl": "https://raw.githubusercontent.com/dbtek/bootswatch-dist"
   },
+  "author": {
+    "name": "İsmail Demirbilek"
+  },
+  "license": "MIT",
   "bootswatch": {
     "version": "3.1.1"
   },
-  "version": "0.0.1",
+  "version": "",
   "dependencies": {
     "grunt-check-online": "^0.2.0"
   },
