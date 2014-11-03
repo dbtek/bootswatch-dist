@@ -78,7 +78,7 @@ module.exports = (grunt) ->
       commitMaster:
         options:
           failOnError: false
-        command: 'git add bower.json package.json && ' +
+        command: 'git checkout master && git add bower.json package.json && ' +
                  'git commit -m "Auto update - Build #$TRAVIS_BUILD_NUMBER [ci skip]" &&' +
                  'git push origin master'
 
