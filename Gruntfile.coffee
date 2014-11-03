@@ -64,6 +64,8 @@ module.exports = (grunt) ->
     clean:
       dist:
         src: ['dist']
+      tmp:
+        src: ['.tmp']
     
     shell:
       setUser:
@@ -73,12 +75,15 @@ module.exports = (grunt) ->
       cloneProject:
         options:
           stdout: false
-        command: 'git clone https://$GH_TOKEN@' + pkg.repository.url.split('://')[1] + ' dist'
+        command: (directory) ->
+          'git clone https://$GH_TOKEN@' + pkg.repository.url.split('://')[1] + ' ' + directory
       
       commitMaster:
         options:
           failOnError: false
-        command: 'git checkout master && git add bower.json package.json && ' +
+          execOptions:
+            cwd: '.tmp'
+        command: 'git add bower.json package.json && ' +
                  'git commit -m "Auto update - Build #$TRAVIS_BUILD_NUMBER [ci skip]" &&' +
                  'git push origin master'
 
@@ -136,12 +141,16 @@ module.exports = (grunt) ->
 
 
   grunt.registerTask 'updateJsonConf', 'Updates version of package.json and bower.json files ', () ->
-    content = pkg
-    content.version = grunt.config.get 'update.version'
-    grunt.file.write 'package.json', JSON.stringify content, undefined, 2
-    bowerConf = grunt.config.get 'bowerConf'
-    bowerConf.version = grunt.config.get 'update.version'
-    grunt.file.write 'bower.json', JSON.stringify bowerConf, undefined, 2
+    grunt.task.run 'clean:tmp'
+    grunt.task.run 'shell:cloneProject:.tmp'
+    grunt.registerTask 'writeJsonChanges', () ->
+      content = pkg
+      content.version = grunt.config.get 'update.version'
+      grunt.file.write '.tmp/package.json', JSON.stringify(content, undefined, 2)
+      bowerConf = grunt.config.get 'bowerConf'
+      bowerConf.version = grunt.config.get 'update.version'
+      grunt.file.write '.tmp/bower1.json', JSON.stringify(bowerConf, undefined, 2)
+    grunt.task.run 'writeJsonChanges'
     grunt.task.run 'shell:commitMaster'
 
   
@@ -160,7 +169,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'release', () ->
     grunt.task.run 'shell:setUser'
     grunt.task.run 'clean:dist'
-    grunt.task.run 'shell:cloneProject'
+    grunt.task.run 'shell:cloneProject:dist'
 
     grunt.config.get('update.themes').forEach (theme) ->
       grunt.task.run 'shell:switchBranch:' + theme.name.toLowerCase()

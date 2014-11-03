@@ -2,3 +2,4 @@ node_modules
 update
 dist
 bower_components
+.tmp
