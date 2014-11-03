@@ -148,7 +148,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'updateBowerJson', 'Updates version of bower.json for themes ', (theme) ->
     # read source json
     content = grunt.file.readJSON 'bower.json'
-    content.version = grunt.config.get 'update.version' + '-' + theme
+    content.version = grunt.config.get('update.version') + '-' + theme
     grunt.file.write 'dist/bower.json', JSON.stringify content, undefined, 2
 
 
