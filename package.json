@@ -1,5 +1,6 @@
 {
   "name": "bootswatch-dist",
+  "version": "3.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/dbtek/bootswatch-dist.git",
@@ -9,9 +10,6 @@
     "name": "İsmail Demirbilek"
   },
   "license": "MIT",
-  "bootswatch": {
-    "version": "3.1.1"
-  },
   "version": "",
   "dependencies": {
     "grunt-check-online": "^0.2.0"
