@@ -142,7 +142,7 @@ module.exports = (grunt) ->
     bowerConf = grunt.config.get 'bowerConf'
     bowerConf.version = grunt.config.get 'update.version'
     grunt.file.write 'bower.json', JSON.stringify bowerConf, undefined, 2
-    #grunt.task.run 'shell:commitMaster'
+    grunt.task.run 'shell:commitMaster'
 
   
   grunt.registerTask 'updateBowerJson', 'Updates version of bower.json for themes ', (theme) ->
