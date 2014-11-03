@@ -2,7 +2,7 @@ bootswatch-dist [![Build Status](https://travis-ci.org/dbtek/bootswatch-dist.svg
 ===============
 
 Distribution packages for Bootswatch themes intended to be used with Bower package manager.
-Bootswatch themes are updated from Bootswatch API and placed in a particular branch with Bootstrap scripts and a proper Bower configuration. These themes are managed through versions. See below.
+Bootswatch themes are updated from Bootswatch API and placed in a particular branch with Bootstrap scripts, icon fonts and a proper Bower configuration. These themes are managed through versions. See below.
 
 ##Install 
 Every theme is released with versions. For example latest Yeti theme is released with `3.3.0-yeti` version identifier.
@@ -10,7 +10,7 @@ With bootswatch-dist, Bootswatch themes can be easily installed via bower.
 
 ####From Terminal
 ```bash
-$ bower install bootswatch-dist#3.2.0-yeti
+$ bower install bootswatch-dist#3.3.0-yeti
 ```
 
 ####With bower.json
