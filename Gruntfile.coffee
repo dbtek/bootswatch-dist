@@ -149,7 +149,7 @@ module.exports = (grunt) ->
       grunt.file.write '.tmp/package.json', JSON.stringify(content, undefined, 2)
       bowerConf = grunt.config.get 'bowerConf'
       bowerConf.version = grunt.config.get 'update.version'
-      grunt.file.write '.tmp/bower1.json', JSON.stringify(bowerConf, undefined, 2)
+      grunt.file.write '.tmp/bower.json', JSON.stringify(bowerConf, undefined, 2)
     grunt.task.run 'writeJsonChanges'
     grunt.task.run 'shell:commitMaster'
 
