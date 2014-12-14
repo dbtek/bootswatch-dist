@@ -41,7 +41,7 @@ module.exports = (grunt) ->
               latestVersion = data.version
               grunt.config.set 'update.version', latestVersion
               grunt.config.set 'update.themes', data.themes
-              grunt.log.writeln 'We have ', grunt.config.get('bowerConf.version') + ', latest version: ' + latestVersion
+              grunt.log.writeln "We have #{grunt.config.get 'bowerConf.version'}, latest version: #{latestVersion}"
               if latestVersion > grunt.config.get 'bowerConf.version'
                 grunt.log.writeln 'New version is available. Updating to: ' + latestVersion
                 # fetch themes
@@ -59,7 +59,6 @@ module.exports = (grunt) ->
               else
                 grunt.task.run 'checkThemes'
                 grunt.task.run 'releaseNewThemes'
-                grunt.task.run 'updateJsonConf'
     
     clean:
       dist:
@@ -181,13 +180,14 @@ module.exports = (grunt) ->
 
   
   grunt.registerTask 'releaseNewThemes', () ->
-    grunt.log.writeln 'themes to release', grunt.config.get('update.newThemes').length
     if grunt.config.get('update.newThemes').length > 0
+      grunt.log.writeln 'Themes to release', grunt.config.get('update.newThemes').length
       grunt.config.set 'update.themes', grunt.config.get 'update.newThemes'
       grunt.task.run 'fetchBootstrapFiles'
       grunt.task.run 'release'
+      grunt.task.run 'updateJsonConf'
     else
-      grunt.log.write 'All themes up to date. Version: ' + grunt.config.get 'pkg.bootswatch.version'
+      grunt.log.write "All is well! Themes are up to date. Version: #{grunt.config.get 'bowerConf.version'}."
 
   
   grunt.registerTask 'checkThemes', () ->
@@ -212,7 +212,7 @@ module.exports = (grunt) ->
         else
           grunt.log.writeln theme.name + ' up to date. (' + data.version + ')'
 
-        if release?
+        if release is true
           # new theme release
           grunt.config.set 'http.fetch' + theme.name + '.options.url', theme.css
           grunt.config.set 'http.fetch' + theme.name + '.dest', 'update/' + theme.name.toLowerCase() + '/bootstrap.css'
