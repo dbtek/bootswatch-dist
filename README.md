@@ -1,52 +1,48 @@
 bootswatch-dist [![Build Status](https://travis-ci.org/dbtek/bootswatch-dist.svg?branch=master)](https://travis-ci.org/dbtek/bootswatch-dist) ![node-dependencies](https://david-dm.org/dbtek/bootswatch-dist.png)
 ===============
 
-Distribution packages for Bootswatch themes intended to be used with Bower package manager.
-Bootswatch themes are updated from Bootswatch API and placed in a particular branch with Bootstrap scripts, icon fonts and a proper Bower configuration. These themes are managed through versions. See below.
+Distribution packages for Bootswatch themes, intended to be used with Bower package manager. Bootswatch themes are amazing for users; with bootswatch-dist they are also delicious for you, developers!
+
+##How?
+Bootswatch themes are updated from Bootswatch API and placed in a particular branch here, in this repo, with Bootstrap scripts, glyphicon fonts and a proper bower configuration. These themes are managed through both versions and branches.  
+bootswatch-dist packages are updated on daily periods with a build system connecting Bootswatch API.
 
 ##Install 
-Every theme is released with versions. For example latest Yeti theme is released with `3.3.0-yeti` version identifier.
-With bootswatch-dist, Bootswatch themes can be easily installed via bower.
+Every theme is released with versions. For example `3.3.0` version of Yeti theme is released with `3.3.0-yeti` version identifier on branch `yeti`. Therefore, both tags and branch names can be used while installing a theme through bower.
+With bootswatch-dist, Bootswatch themes are easily installed via bower.
 
 ####From Terminal
+For exact version use tag:
 ```bash
 $ bower install bootswatch-dist#3.3.0-yeti
 ```
 
+For latest version use branch:
+```bash
+$ bower install bootswatch-dist#yeti
+```
+
 ####With bower.json
+Again for exact version:
 ```js
   ...
   "dependencies": {
     "bootswatch-dist": "3.3.0-yeti"
   }
 ```
-
-###Available versions:
+And for latest version:
+```js
+  ...
+  "dependencies": {
+    "bootswatch-dist": "yeti"
+  }
 ```
-- bootswatch-dist
-  - 3.3.0-amelia
-  - 3.3.0-cerulean
-  - 3.3.0-cosmo
-  - 3.3.0-cyborg
-  - 3.3.0-darkly
-  - 3.3.0-flatly
-  - 3.3.0-journal
-  - 3.3.0-lumen
-  - 3.3.0-paper
-  - 3.3.0-readable
-  - 3.3.0-sandstone
-  - 3.3.0-simplex
-  - 3.3.0-slate
-  - 3.3.0-spacelab
-  - 3.3.0-superhero
-  - 3.3.0-united
-  - 3.3.0-yeti
-  - All 3.1.1+ versions
-```  
+
+###Available Versions
+Run `$ bower info bootswatch-dist` for available versions. All 3.1.1+ versions are available through bower.
 
 
 ##Clean Distribution
-
 Bootswatch dist provides you clean and full Bootstrap installation. Produced files are:
 
 ```
@@ -65,9 +61,6 @@ bootswatch-dist/
     └── bootstrap.min.js
 ```
 
-##Updates
-bootswatch-dist packages updated instantly with a build system connecting Bootswatch API.
-
 ##Author
 İsmail Demirbilek - [@dbtek](http://twitter.com/dbtek)
 
@@ -79,4 +72,5 @@ bootswatch-dist packages updated instantly with a build system connecting Bootsw
 - [Bootswatch](http://bootswatch.com)  
 - [Bootstrap](http://getbootstrap.com)  
 - [Bootstrap CDN](http://bootstrapcdn.com)  
+- [Grunt](http://gruntjs.com/)
 - Some other great open source tools.
