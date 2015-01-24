@@ -26,6 +26,7 @@ module.exports = (grunt) ->
       'update/bootstrap/js/bootstrap.min.js': 'http://netdna.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js',
       'update/bootstrap/fonts/glyphicons-halflings-regular.eot': 'http://netdna.bootstrapcdn.com/bootstrap/latest/fonts/glyphicons-halflings-regular.eot',
       'update/bootstrap/fonts/glyphicons-halflings-regular.woff': 'http://netdna.bootstrapcdn.com/bootstrap/latest/fonts/glyphicons-halflings-regular.woff',
+      'update/bootstrap/fonts/glyphicons-halflings-regular.woff2': 'http://netdna.bootstrapcdn.com/bootstrap/latest/fonts/glyphicons-halflings-regular.woff2',
       'update/bootstrap/fonts/glyphicons-halflings-regular.ttf': 'http://netdna.bootstrapcdn.com/bootstrap/latest/fonts/glyphicons-halflings-regular.ttf',
       'update/bootstrap/fonts/glyphicons-halflings-regular.svg': 'http://netdna.bootstrapcdn.com/bootstrap/latest/fonts/glyphicons-halflings-regular.svg'
 
