@@ -9,3 +9,4 @@ branches:
 env:
   global:
     secure: NP/EAkCBE0LluIw31hN6dDh3xduApOseTSdv0J5LbJiAltcbnDE4WS0zkkNfual3QU7figSJmqidieHEGOOd3QNTSw/LjfoePKUgJEAA3GV0HdEtzXMqYYQt/TJf6q8L2FhK7x3RYb08flxjZuKhC3ZF9+sqIEmv0TeNN5Peaz0=
+sudo: false
