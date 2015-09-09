@@ -10,7 +10,7 @@ Git = require 'nodegit'
 unzip = require 'unzip'
 Q = require 'q'
 
-reqClientInfo = "client_id=e9fcb621dc2e97120b8c&client_secret=10f04d4dbd2d34bffe6a3b64420b7eda81f68826"
+reqClientInfo = "client_id=#{process.env.GHC_ID}&client_secret=#{process.env.GHC_SECRET}"
 dest =
   bootswatch: ".tmp/bootswatch"
   bootstrap: ".tmp/bootstrap"
@@ -128,8 +128,8 @@ themes = (version) ->
 
 cloneRepo = ->
   deferred = Q.defer()
-  Git.Clone "https://$GH_TOKEN@#{pkg.repository.url.substr(8)}", dest.dist, (repository) ->
-    deferred.resolve(repository)
+  Git.Clone pkg.repository.url, dest.dist, (repository) ->
+    deferred.resolve repository
   deferred.promise
 
 copyFiles = (theme, version) ->
