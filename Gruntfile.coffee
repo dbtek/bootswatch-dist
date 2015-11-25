@@ -33,7 +33,7 @@ module.exports = (grunt) ->
     http:
       bootswatch:
         options:
-          url: 'http://api.bootswatch.com/3/'
+          url: 'http://api.bootswatch.com/3.json'
           callback: (error, response, data) ->
             data = JSON.parse data
             if error?
