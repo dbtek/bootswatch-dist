@@ -3,7 +3,7 @@
 module.exports = (grunt) ->
 
   pkg = grunt.file.readJSON 'package.json'
-  
+
   grunt.initConfig
     # Metadata
     pkg: pkg
@@ -33,9 +33,10 @@ module.exports = (grunt) ->
     http:
       bootswatch:
         options:
-          url: 'http://api.bootswatch.com/3.json'
+          url: 'https://bootswatch.com/api/3.json'
           callback: (error, response, data) ->
             data = JSON.parse data
+            console.log data
             if error?
               grunt.log.error 'Something went wrong! Can\'t reach Bootswatch API'
             else
@@ -60,13 +61,13 @@ module.exports = (grunt) ->
               else
                 grunt.task.run 'checkThemes'
                 grunt.task.run 'releaseNewThemes'
-    
+
     clean:
       dist:
         src: ['dist']
       tmp:
         src: ['.tmp']
-    
+
     shell:
       setUser:
         options:
@@ -77,7 +78,7 @@ module.exports = (grunt) ->
           stdout: false
         command: (directory) ->
           'git clone https://$GH_TOKEN@' + pkg.repository.url.split('://')[1] + ' ' + directory
-      
+
       commitMaster:
         options:
           failOnError: false
@@ -153,7 +154,7 @@ module.exports = (grunt) ->
     grunt.task.run 'writeJsonChanges'
     grunt.task.run 'shell:commitMaster'
 
-  
+
   grunt.registerTask 'updateBowerJson', 'Updates version of bower.json for themes ', (theme) ->
     # read source json
     content = grunt.file.readJSON 'bower.json'
@@ -165,7 +166,7 @@ module.exports = (grunt) ->
     'curl'
   ]
 
-  
+
   grunt.registerTask 'release', () ->
     grunt.task.run 'shell:setUser'
     grunt.task.run 'clean:dist'
@@ -179,7 +180,7 @@ module.exports = (grunt) ->
       grunt.task.run 'shell:tagVersion:' + theme.name.toLowerCase() + ':' + grunt.config.get 'update.version'
       grunt.task.run 'shell:pushChanges:' + theme.name.toLowerCase()
 
-  
+
   grunt.registerTask 'releaseNewThemes', () ->
     if grunt.config.get('update.newThemes').length > 0
       grunt.log.writeln 'Themes to release', grunt.config.get('update.newThemes').length
@@ -190,7 +191,7 @@ module.exports = (grunt) ->
     else
       grunt.log.write "All is well! Themes are up to date. Version: #{grunt.config.get 'bowerConf.version'}."
 
-  
+
   grunt.registerTask 'checkThemes', () ->
     grunt.config.set 'update.newThemes', []
 
