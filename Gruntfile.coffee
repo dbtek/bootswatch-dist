@@ -36,7 +36,6 @@ module.exports = (grunt) ->
           url: 'https://bootswatch.com/api/3.json'
           callback: (error, response, data) ->
             data = JSON.parse data
-            console.log data
             if error?
               grunt.log.error 'Something went wrong! Can\'t reach Bootswatch API'
             else
@@ -116,7 +115,7 @@ module.exports = (grunt) ->
           execOptions:
             cwd: 'dist'
         command: 'git add . --all && ' +
-                 'git commit -m "Auto update - Build #$TRAVIS_BUILD_NUMBER [ci skip]"'
+                 'git commit -m "Auto update - Build #$TRAVIS_BUILD_NUMBER"'
       tagVersion:
         options:
           failOnError: false
