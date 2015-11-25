@@ -8,5 +8,5 @@ branches:
   - master
 env:
   global:
-    secure: "CyGk3XOLn0GYKT4eaC/Yn4hWGOBRlsOTIEyaXBaWvX1owEnD5PMYcUujCNE6I1KOLVoFGLlEM5t44KSg4cU4SQLH9bzqfkyArdB6FGZBI6xbXmKMG1a8deOF7u9kkmhAwYcnlbYCQNB0PyLW5onWSE+LHrBcUYdD9p2dkUJqgJw="
-sudo: false
+    secure: "VQAj3sFTCvBnvPdp7LvPRiVXuOTjerVTyAsWv/ekO5Zg341eAKW40MIBXhppkZn7qTab4eIvdmf4gh/+h2MI/eJIcFT/JcoOlQmiKFTpNr/rbhzkQo6AWdqh5rIPS8pCiu0MKE9VZVKOYk5bAAQCoFmEcf6nT0ApPBqEe+SuqaE="
+  sudo: false
