@@ -7,6 +7,7 @@
   ],
   "description": "Distribution packages for Bootswatch themes. Just the ones ready to use with Bower.",
   "main": [
+    "css/bootstrap.css"
     "js/bootstrap.js"
   ],
   "dependencies": {
