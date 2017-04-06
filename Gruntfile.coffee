@@ -202,12 +202,10 @@ module.exports = (grunt) ->
       grunt.config.set 'http.check' + theme.name + '.options.url', url
       grunt.config.set 'http.check' + theme.name + '.options.ignoreErrors', true
       grunt.config.set 'http.check' + theme.name + '.options.callback', (error, response, data) ->
+        return if response.statusCode isnt '200'
         release = false
         data = JSON.parse data
-        if response.statusCode is '404'
-          release = true
-          grunt.log.writeln 'New theme found: ' + theme.name
-        else if data.version < grunt.config.get 'update.version'
+        if data.version < grunt.config.get 'update.version'
           release = true
           grunt.log.writeln 'Theme out of date: ' + theme.name
         else
