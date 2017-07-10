@@ -1,6 +1,6 @@
 {
     "name": "bootswatch-dist",
-    "version": "v3.2.0-spacelab",
+    "version": "v3.2.0+1-spacelab",
     "repository": {
         "type": "git",
         "url": "https://github.com/dbtek/bootswatch-dist.git",
