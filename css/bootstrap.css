@@ -5630,7 +5630,7 @@ button.close {
   margin-left: -11px;
   border-bottom-width: 0;
   border-top-color: rgba(0, 0, 0, 0);
-  border-top-color: rgba(0, 0, 0, 0.05);
+  border-top-color: rgba(0, 0, 0, 0.075);
   bottom: -11px;
 }
 .popover.top > .arrow:after {
@@ -5646,7 +5646,7 @@ button.close {
   margin-top: -11px;
   border-left-width: 0;
   border-right-color: rgba(0, 0, 0, 0);
-  border-right-color: rgba(0, 0, 0, 0.05);
+  border-right-color: rgba(0, 0, 0, 0.075);
 }
 .popover.right > .arrow:after {
   content: " ";
@@ -5660,7 +5660,7 @@ button.close {
   margin-left: -11px;
   border-top-width: 0;
   border-bottom-color: rgba(0, 0, 0, 0);
-  border-bottom-color: rgba(0, 0, 0, 0.05);
+  border-bottom-color: rgba(0, 0, 0, 0.075);
   top: -11px;
 }
 .popover.bottom > .arrow:after {
@@ -5676,7 +5676,7 @@ button.close {
   margin-top: -11px;
   border-right-width: 0;
   border-left-color: rgba(0, 0, 0, 0);
-  border-left-color: rgba(0, 0, 0, 0.05);
+  border-left-color: rgba(0, 0, 0, 0.075);
 }
 .popover.left > .arrow:after {
   content: " ";
@@ -6280,7 +6280,8 @@ body {
 p {
   margin: 0 0 1em;
 }
-input {
+input,
+button {
   -webkit-font-smoothing: antialiased;
   letter-spacing: .1px;
   text-rendering: optimizeLegibility;
@@ -6413,7 +6414,7 @@ select.form-control {
 .alert-danger {
   background-color: #e51c23;
 }
-.alert a,
+.alert a:not(.close),
 .alert .alert-link {
   color: #fff;
   font-weight: bold;
@@ -6465,6 +6466,7 @@ select.form-control {
 .close {
   font-size: 34px;
   font-weight: 300;
+  line-height: 24px;
   opacity: 0.6;
 }
 .close:hover {
