@@ -1,6 +1,6 @@
 {
     "name": "bootswatch-dist",
-    "version": "v3.0.3-cyborg",
+    "version": "v3.0.3+1-cyborg",
     "repository": {
         "type": "git",
         "url": "https://github.com/dbtek/bootswatch-dist.git",
