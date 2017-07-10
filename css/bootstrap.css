@@ -759,7 +759,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 code {
@@ -2143,7 +2143,7 @@ textarea.input-sm {
 }
 
 .input-lg {
-  height: 56px;
+  height: 54px;
   padding: 14px 16px;
   font-size: 18px;
   line-height: 1.33;
@@ -2151,8 +2151,8 @@ textarea.input-sm {
 }
 
 select.input-lg {
-  height: 56px;
-  line-height: 56px;
+  height: 54px;
+  line-height: 54px;
 }
 
 textarea.input-lg {
@@ -4092,7 +4092,7 @@ input[type="button"].btn-block {
 .input-group-lg > .form-control,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn {
-  height: 56px;
+  height: 54px;
   padding: 14px 16px;
   font-size: 18px;
   line-height: 1.33;
@@ -4102,8 +4102,8 @@ input[type="button"].btn-block {
 select.input-group-lg > .form-control,
 select.input-group-lg > .input-group-addon,
 select.input-group-lg > .input-group-btn > .btn {
-  height: 56px;
-  line-height: 56px;
+  height: 54px;
+  line-height: 54px;
 }
 
 textarea.input-group-lg > .form-control,
@@ -4405,12 +4405,12 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav-tabs.nav-justified > .active > a,
 .nav-tabs.nav-justified > .active > a:hover,
 .nav-tabs.nav-justified > .active > a:focus {
-  border: 1px solid #dddddd;
+  border: 1px solid #1c1e22;
 }
 
 @media (min-width: 768px) {
   .nav-tabs.nav-justified > li > a {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #1c1e22;
     border-radius: 4px 4px 0 0;
   }
   .nav-tabs.nav-justified > .active > a,
@@ -4488,12 +4488,12 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav-tabs-justified > .active > a,
 .nav-tabs-justified > .active > a:hover,
 .nav-tabs-justified > .active > a:focus {
-  border: 1px solid #dddddd;
+  border: 1px solid #1c1e22;
 }
 
 @media (min-width: 768px) {
   .nav-tabs-justified > li > a {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #1c1e22;
     border-radius: 4px 4px 0 0;
   }
   .nav-tabs-justified > .active > a,
@@ -7740,6 +7740,7 @@ legend {
 }
 
 .input-group-addon {
+  color: #ffffff;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
   background-image: -webkit-linear-gradient(#484e55, #3a3f44 60%, #313539);
   background-image: linear-gradient(#484e55, #3a3f44 60%, #313539);
