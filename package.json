@@ -1,6 +1,6 @@
 {
     "name": "bootswatch-dist",
-    "version": "v3.3.0-flatly",
+    "version": "v3.3.1-flatly",
     "repository": {
         "type": "git",
         "url": "https://github.com/dbtek/bootswatch-dist.git",
