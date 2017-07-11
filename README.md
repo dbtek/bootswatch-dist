@@ -4,8 +4,8 @@ bootswatch-dist [![Build Status](https://travis-ci.org/dbtek/bootswatch-dist.svg
 Distribution packages for Bootswatch themes, intended to be used with Bower package manager. Bootswatch themes are amazing for users; with bootswatch-dist they are also delicious for you, developers!
 
 ## How?
-Bootswatch themes are updated from Bootswatch API and placed in a particular branch here, in this repo, with Bootstrap scripts, glyphicon fonts and a proper bower configuration. These themes are managed through both versions and branches.  
-bootswatch-dist packages are updated on daily periods with a build system connecting Bootswatch API.
+Bootswatch themes are updated from Github API and placed in a particular branch here, in this repo, with Bootstrap scripts, glyphicon fonts and a proper bower configuration. These themes are managed through both versions and branches.  
+bootswatch-dist packages are updated on daily periods with a build system connecting Github API.
 
 ## Install 
 Every theme is released with versions. For example `3.3.0` version of Yeti theme is released with `3.3.0-yeti` version identifier on branch `yeti`. Therefore, both tags and branch names can be used while installing a theme through bower.
@@ -75,4 +75,3 @@ bootswatch-dist/
 - [Bootstrap CDN](http://bootstrapcdn.com)  
 - [Grunt](http://gruntjs.com/)
 - Some other great open source tools.
-

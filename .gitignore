@@ -3,3 +3,4 @@ update
 dist
 bower_components
 .tmp
+.DS_Store
