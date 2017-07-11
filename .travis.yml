@@ -12,3 +12,4 @@ branches:
 env:
   global:
     secure: "I/yieU6Gc1gogf3lCIG6maqEq3Ru/yCGcWTPWF099HPsnNFkxDz/IMbdFWh7lYypJQ33iDoLEfmv4gxoxxz+B5bJXW9UHzAGrGV7wQbtD1v0hHAwsArmnDNsVYkSENh0fa0xDEuqGLljgrkJBDeEGKnCX2zRIuA9u/3f4znsL6k"
+sudo: false
