@@ -70,7 +70,7 @@ function getNewVersions() {
       }
       newVersions.reverse()
       // order versions from lower to greater
-      console.log(chalk.blue('New versions available: ' + newVersions.map(v => v.name).join(', ') + '.'))
+      console.log(chalk.blue('New versions available: ' + (newVersions.map(v => v.name).join(', ') || 'none') + '.'))
       return newVersions
     })
     .catch(e => console.log(e.stack))
@@ -261,6 +261,9 @@ fse.removeSync('.tmp/repo')
 cloneRepo().then(() => {
   getNewVersions()
     .then(newVersions => {
+      if (newVersions.length === 0) {
+        return { status: 1 }
+      }
       return newVersions.reduce((p, version) => {
         return p.then(() => {
           console.log(chalk.underline.inverse.green('Updating to ' + version.name + '...'))
@@ -278,19 +281,26 @@ cloneRepo().then(() => {
                 })
               }, Promise.resolve())
             })
+            .then(() => {
+              return { status: 2, version: version }
+            })
           })
       }, Promise.resolve())
-      .then(() => {
-        return new Promise((resolve, reject) => {
-          git.cwd('.', () => {
-            update.latest = cleanVersion(newVersions[newVersions.length-1].name)
-            fs.writeFile('update.json', JSON.stringify(update, null, 4), () => {
-              git.add('udpate.json', () => {
-                git.commit('version upgrade', () => {
-                  git.push('origin', 'master', () => {
-                    console.log(chalk.underline.green(`Latest version is ${update.latest}.`))
-                    resolve()
-                  })
+    })
+    .then((opts) => {
+      if (opts.status === 1) {
+        console.log(chalk.inverse.green('All is well, we have latest version.'))
+        return opts
+      }
+      return new Promise((resolve, reject) => {
+        git.cwd('.', () => {
+          update.latest = cleanVersion(opts.version.name)
+          fs.writeFile('update.json', JSON.stringify(update, null, 4), () => {
+            git.add('update.json', () => {
+              git.commit('version upgrade', () => {
+                git.push('origin', 'master', () => {
+                  console.log(chalk.inverse.green(`Update completed. Latest version is ${update.latest}.`))
+                  resolve(opts)
                 })
               })
             })
