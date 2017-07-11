@@ -130,7 +130,7 @@ function copyRepo(dest) {
  */
 function downloadBootstrapAssets(version, path) {
   console.log(chalk.blue((`Downloading Bootstrap assets to ${path}`)))
-  version = cleanVersion(version)
+  version = semver.clean(version)
   const url = 'https://maxcdn.bootstrapcdn.com/bootstrap'
   var proms = [
     'fonts/glyphicons-halflings-regular.eot',
@@ -161,7 +161,7 @@ function downloadBootstrapAssets(version, path) {
 }
 
 function setupThemeRepo(theme, version) {
-  console.log(chalk.green('Starting to setup ' + theme + '.'))
+  console.log(chalk.underline.green('Starting to setup ' + theme + '.'))
   const cwd = `.tmp/${version}/${theme}`
   const repoPath = `${cwd}/publish`
   // clone (by simple copying) repo for theme update
@@ -273,7 +273,7 @@ cloneRepo().then(() => {
               return themes.reduce((p, theme) => {
                 return p.then(() => {
                   return releaseTheme(theme, version.name)
-                    .then(r => console.log(chalk.green(`${theme} updated.`)))
+                    .then(r => console.log(chalk.blue(`Theme update succeeded.`)))
                     .catch(err => console.log(chalk.red('Error updating ' + theme, err)))
                 })
               }, Promise.resolve())
