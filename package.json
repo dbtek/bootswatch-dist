@@ -1,6 +1,6 @@
 {
     "name": "bootswatch-dist",
-    "version": "v3.3.5-spacelab",
+    "version": "v3.3.6-spacelab",
     "repository": {
         "type": "git",
         "url": "https://github.com/dbtek/bootswatch-dist.git",
@@ -23,8 +23,10 @@
         "lumen",
         "paper",
         "readable",
+        "sandstone",
         "simplex",
         "slate",
+        "solar",
         "spacelab",
         "superhero",
         "united",
@@ -43,9 +45,6 @@
     },
     "engines": {
         "node": ">=0.10.0"
-    },
-    "scripts": {
-        "test": "grunt"
     },
     "dependencies": {}
 }
