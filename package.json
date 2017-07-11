@@ -1,6 +1,6 @@
 {
     "name": "bootswatch-dist",
-    "version": "v3.3.4-lumen",
+    "version": "v3.3.4+1-lumen",
     "repository": {
         "type": "git",
         "url": "https://github.com/dbtek/bootswatch-dist.git",
