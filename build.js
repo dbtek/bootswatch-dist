@@ -14,7 +14,7 @@ const bower = require('./bower.json')
 const pkg = require('./package.json')
 
 const apiUrl = 'https://api.github.com/repos/thomaspark/bootswatch'
-const GH_TOKEN = '49c38b52231d9d11c4a3ed2bd5ca2125afbb9121'
+const GH_TOKEN = process.env.GH_TOKEN
 const reqOpts = {
   headers: {
     'Authorization': `token ${GH_TOKEN}`
