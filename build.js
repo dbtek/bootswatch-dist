@@ -96,7 +96,7 @@ function getDownloadedThemes(path) {
  */
 function cloneRepo() {
   return new Promise((resolve, reject) => {
-    git.clone('https://49c38b52231d9d11c4a3ed2bd5ca2125afbb9121@github.com/dbtek/bootswatch-dist.git', '.tmp/repo', (err, result) => {
+    git.clone(`https://${GH_TOKEN}@github.com/dbtek/bootswatch-dist.git`, '.tmp/repo', (err, result) => {
       if (err) {
         return reject(err)
       }
