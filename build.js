@@ -35,6 +35,17 @@ function clearDirectory(directory) {
 }
 
 /**
+ * Converts v1.0.1+1 to 1.0.1+1
+ * @param  {String} version Semantic version
+ * @return {String}         Clean semantic version
+ */
+function cleanVersion(version) {
+  if (version[0] === 'v')
+    return version.slice(1)
+  return version
+}
+
+/**
  * Fetches tags from github.
  * @return {[type]} [description]
  */
@@ -51,7 +62,9 @@ function getNewVersions() {
     .then(tags => {
       var newVersions = []
       for(tag of tags) {
-        if (semver.gt(tag.name, update.latest)) {
+        if (semver.gt(tag.name, update.latest) || (
+            semver.eq(tag.name, update.latest) && (semver(tag.name).build[0] || 0) > (semver(update.latest).build[0] || 0)
+          )) {
           newVersions.push(tag)
         }
       }
@@ -117,7 +130,7 @@ function copyRepo(dest) {
  */
 function downloadBootstrapAssets(version, path) {
   console.log(chalk.blue((`Downloading Bootstrap assets to ${path}`)))
-  version = semver.clean(version)
+  version = cleanVersion(version)
   const url = 'https://maxcdn.bootstrapcdn.com/bootstrap'
   var proms = [
     'fonts/glyphicons-halflings-regular.eot',
@@ -223,7 +236,7 @@ function releaseTheme(theme, version) {
           git.commit(`${version} upgrade :arrow_up:`, ['.'], (err, res) => {
             if (err) return reject(err)
             // tag current version (3.3.7-cerulean)
-            git.addTag(semver.clean(version) + '-' + theme, (err) => {
+            git.addTag(cleanVersion(version) + '-' + theme, (err) => {
               if (err) return reject(err)
               console.log(chalk.blue('Pushing commit...'))
               // push commit
@@ -270,7 +283,7 @@ cloneRepo().then(() => {
       .then(() => {
         return new Promise((resolve, reject) => {
           git.cwd('.', () => {
-            update.latest = semver.clean(newVersions[newVersions.length-1].name)
+            update.latest = cleanVersion(newVersions[newVersions.length-1].name)
             fs.writeFile('update.json', JSON.stringify(update, null, 4), () => {
               git.add('udpate.json', () => {
                 git.commit('version upgrade', () => {
