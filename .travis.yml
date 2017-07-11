@@ -1,12 +1,11 @@
 language: node_js
 node_js:
-- '6'
-before_script:
-- npm install -g grunt-cli
+  - '6'
+script:
+  - node build.js
 branches:
   only:
-  - master
+    - master
 env:
   global:
     secure: "YdZT3hjn6LmJfFpNjcqIgzSnDwhy32vT3rjrhJYoFnnqb3XF+jVbj0QSpeU8JYfhtIlXPDnNhH54ksuJtS+JOuBh4bn84bYXXs1VpzJ2t34wvugoUun+0IojvofC/A6Su57dplyORuXmRbomYD3rgIN/RKjwQwC8lYkR4uq1FyY="
-sudo: false
